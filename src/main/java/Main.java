@@ -3,7 +3,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-@Mod(modid = "timechanger", version = "1.1")
+@Mod(modid = "timechanger", version = "1.5")
 public class Main {
 
     @EventHandler

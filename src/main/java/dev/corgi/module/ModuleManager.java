@@ -29,7 +29,6 @@ public class ModuleManager {
 		this.modules.add(new AimAssist());
 		this.modules.add(new FullBright());
 		this.modules.add(new FastPlace());
-		this.modules.add(new STap());
 	}
 	
 	public Module getModule(String name) {

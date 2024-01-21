@@ -29,6 +29,8 @@ public class ModuleManager {
 		this.modules.add(new AimAssist());
 		this.modules.add(new FullBright());
 		this.modules.add(new FastPlace());
+		this.modules.add(new ChestESP());
+		this.modules.add(new PlayerESP());
 	}
 	
 	public Module getModule(String name) {

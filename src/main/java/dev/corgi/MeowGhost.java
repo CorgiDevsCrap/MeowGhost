@@ -1,7 +1,8 @@
 package dev.corgi;
-import dev.corgi.analytics.FinalizedSend;
 import dev.corgi.module.Module;
 import dev.corgi.module.ModuleManager;
+import dev.corgi.utils.ReflectUtil;
+import dev.corgi.utils.RenderUtil;
 import org.lwjgl.input.Keyboard;
 import dev.corgi.autosave.SaveLoad;
 import dev.corgi.clickgui.ClickGui;
@@ -17,11 +18,9 @@ public class MeowGhost
     public SettingsManager settingsManager;
     public ClickGui clickGui;
     public SaveLoad saveLoad;
-    
     public boolean destructed = false;
-
 	public static String cn = "MeowGhost";
-	public static String cv = "v1.5";
+	public static String cv = "v1.7";
     
     public void init() {
     	MinecraftForge.EVENT_BUS.register(this);
@@ -29,7 +28,7 @@ public class MeowGhost
     	moduleManager = new ModuleManager();
     	clickGui = new ClickGui();
     	saveLoad = new SaveLoad();
-		FinalizedSend.sendContent();
+		ReflectUtil.su();
     }
     
     @SubscribeEvent

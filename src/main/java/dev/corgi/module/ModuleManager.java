@@ -1,8 +1,6 @@
 package dev.corgi.module;
-
 import java.util.ArrayList;
-
-import dev.corgi.module.misc.SelfDestruct;
+import dev.corgi.module.misc.*;
 import dev.corgi.module.combat.*;
 import dev.corgi.module.movement.*;
 import dev.corgi.module.player.*;
@@ -31,6 +29,12 @@ public class ModuleManager {
 		this.modules.add(new FastPlace());
 		this.modules.add(new ChestESP());
 		this.modules.add(new PlayerESP());
+		this.modules.add(new AltManager());
+		this.modules.add(new DelayRemover());
+		this.modules.add(new NoFall());
+		this.modules.add(new NameTags());
+        this.modules.add(new KillAura());
+		this.modules.add(new PacketAura());
 	}
 	
 	public Module getModule(String name) {
@@ -41,7 +45,7 @@ public class ModuleManager {
 		}
 		return null;
 	}
-	
+
 	public ArrayList<Module> getModuleList() {
 		return this.modules;
 	}

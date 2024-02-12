@@ -12,6 +12,7 @@ public class Module {
 	private String name, description;
 	private int key;
 	private Category category;
+	public String no = " ";
 	private boolean toggled;
 	public boolean visible = true;
 	
@@ -82,11 +83,7 @@ public class Module {
 	}
 
 	public void onUpdate() {
-		if(toggled) {
-			FMLCommonHandler.instance().bus().register(this);
-		} else {
-			FMLCommonHandler.instance().bus().unregister(this);
-		}
+		FMLCommonHandler.instance().bus().register(this);
 	}
 	
 	public String getName() {

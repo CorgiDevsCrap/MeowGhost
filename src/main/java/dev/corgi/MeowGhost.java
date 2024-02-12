@@ -20,7 +20,7 @@ public class MeowGhost
     public SaveLoad saveLoad;
     public boolean destructed = false;
 	public static String cn = "MeowGhost";
-	public static String cv = "v1.7";
+	public static String cv = "v1.8";
     
     public void init() {
     	MinecraftForge.EVENT_BUS.register(this);

@@ -28,7 +28,8 @@ public enum TextFormatting {
   private final String toString;
   private final int rgb;
 
-  public static final char COLOR_CHAR = '&';
+
+  public static final char COLOR_CHAR = '\u00A7';
 
   TextFormatting(char code, int rgb) {
     this.rgb = rgb;

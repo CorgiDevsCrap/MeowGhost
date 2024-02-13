@@ -42,7 +42,7 @@ public class AimAssist extends Module {
             if(femboyporn != null && (another_one_xd(femboyporn) < - 1.0)) {
                 final boolean nigger = another_one_xd(femboyporn) > 0.0;
                 final EntityPlayerSP thePlayer = mc.thePlayer;
-                thePlayer.rotationYaw += (float)(nigger ? (-(Math.abs(another_one_xd(femboyporn)) / MeowGhost.instance.settingsManager.getSettingByName(this, "FOV").getValDouble())) : (Math.abs(another_one_xd(femboyporn)) / MeowGhost.instance.settingsManager.getSettingByName(this, "Speed").getValDouble() * 20));
+                thePlayer.rotationYaw += (float)(nigger ? (-(Math.abs(another_one_xd(femboyporn)) / MeowGhost.instance.settingsManager.getSettingByName(this, "FOV").getValDouble())) : (Math.abs(another_one_xd(femboyporn)) / MeowGhost.instance.settingsManager.getSettingByName(this, "Speed").getValDouble() * 40));
             }
         }
     }
@@ -74,7 +74,7 @@ public class AimAssist extends Module {
 
     public Entity idk_what_this_does_XDDD() {
         Entity e = null;
-        int f = (int)MeowGhost.instance.settingsManager.getSettingByName(this, "Speed").getValDouble() * 20;
+        int f = (int)MeowGhost.instance.settingsManager.getSettingByName(this, "Speed").getValDouble() * 40;
         for (final Object o : mc.theWorld.loadedEntityList) {
             final Entity ent = (Entity)o;
             if (ent.isEntityAlive() && !ent.isInvisible() && ent != mc.thePlayer && mc.thePlayer.getDistanceToEntity(ent) < 6.0f && this.novoline_build_from_2020_bullshit(ent) && ent instanceof EntityLivingBase && mc.thePlayer.canEntityBeSeen(ent) && rise_410_deobfed_aimassist_LMAO(ent, (float)f)) {

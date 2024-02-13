@@ -30,6 +30,7 @@ public class ModuleManager {
 		this.modules.add(new ChestESP());
 		this.modules.add(new PlayerESP());
 		this.modules.add(new AltManager());
+		this.modules.add(new Customizer());
 		this.modules.add(new DelayRemover());
 		this.modules.add(new NoFall());
 		this.modules.add(new NameTags());

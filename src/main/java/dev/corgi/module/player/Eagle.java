@@ -3,6 +3,7 @@ package dev.corgi.module.player;
 import dev.corgi.MeowGhost;
 import dev.corgi.module.Category;
 import dev.corgi.module.Module;
+import dev.corgi.settings.Setting;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
@@ -14,8 +15,11 @@ import org.lwjgl.input.Keyboard;
 
 public class Eagle extends Module {
 
+    public Setting pitch;
+
     public Eagle() {
         super("Eagle", "eagler", Category.PLAYER);
+        MeowGhost.instance.settingsManager.rSetting(pitch = new Setting("Pitch", this, true));
         this.setKey(Keyboard.KEY_G);
     }
 
@@ -28,7 +32,11 @@ public class Eagle extends Module {
                 if(i.getItem() instanceof ItemBlock) {
                     KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), false);
                     if(mc.theWorld.getBlockState(bP).getBlock() == Blocks.air && mc.thePlayer.onGround) {
-                        KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), true);
+                        if(pitch.isCheck() && mc.thePlayer.rotationPitch >= 45) {
+                            KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), true);
+                        } else if(!pitch.isCheck()) {
+                            KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), true);
+                        }
                     }
                 }
             }

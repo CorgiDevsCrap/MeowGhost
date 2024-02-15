@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 public class AimAssist extends Module {
 
     public AimAssist() {
-        super("AimAssist", "epic!", Category.COMBAT);
+        super("OldAimAssist", "epic!", Category.COMBAT);
 
         MeowGhost.instance.settingsManager.rSetting(new Setting("Speed", this, 1, 35.0, 75.0, false));
         MeowGhost.instance.settingsManager.rSetting(new Setting("FOV", this, 70.0, 30.0, 180.0, false));

@@ -1,8 +1,10 @@
 package dev.corgi;
 import dev.corgi.module.Module;
 import dev.corgi.module.ModuleManager;
+import dev.corgi.utils.PlayerUtil;
 import dev.corgi.utils.ReflectUtil;
 import dev.corgi.utils.RenderUtil;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 import dev.corgi.autosave.SaveLoad;
 import dev.corgi.clickgui.ClickGui;
@@ -11,6 +13,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
+
+import java.util.ArrayList;
+
 public class MeowGhost
 {
     public static MeowGhost instance;
@@ -20,7 +25,8 @@ public class MeowGhost
     public SaveLoad saveLoad;
     public boolean destructed = false;
 	public static String cn = "MeowGhost";
-	public static String cv = "v1.9";
+	public static String cv = "v2.0";
+	public ArrayList<String> friends = new ArrayList<>();
     
     public void init() {
     	MinecraftForge.EVENT_BUS.register(this);
@@ -64,5 +70,19 @@ public class MeowGhost
     	}
     	this.moduleManager = null;
     	this.clickGui = null;
+    }
+
+    @SubscribeEvent
+    public void onTick(TickEvent.ClientTickEvent e) {
+        if (e.phase == TickEvent.Phase.END) {
+            if (PlayerUtil.isPlayerInGame() && !destructed) {
+                for (Module m : moduleManager.modules) {
+                    if (m.isToggled()) {
+                        m.onUpdate();
+                    }
+                }
+            }
+
+        }
     }
 }

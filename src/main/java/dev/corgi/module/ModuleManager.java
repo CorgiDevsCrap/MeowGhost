@@ -36,6 +36,8 @@ public class ModuleManager {
 		this.modules.add(new NameTags());
         this.modules.add(new KillAura());
 		this.modules.add(new PacketAura());
+		this.modules.add(new SafeWalk());
+		this.modules.add(new NewAimAssist());
 	}
 	
 	public Module getModule(String name) {

@@ -4,6 +4,7 @@ import dev.corgi.MeowGhost;
 import dev.corgi.module.Category;
 import dev.corgi.module.Module;
 import dev.corgi.settings.Setting;
+import dev.corgi.utils.PlayerUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -37,8 +38,12 @@ public class AutoClicker extends Module {
 	
 	@SubscribeEvent
 	public void onTick(TickEvent.RenderTickEvent e) {
-		if(this.getIfSelectingBlock(this.hasSelectedBlock)) {
-			return;
+		try {
+			if(this.getIfSelectingBlock(this.hasSelectedBlock)) {
+				return;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 		if (MeowGhost.instance.destructed) {
 			return;
@@ -79,7 +84,7 @@ public class AutoClicker extends Module {
 	}
 
 	private boolean getIfSelectingBlock(boolean c) {
-		if (Minecraft.getMinecraft().getRenderViewEntity() != null) {
+		if (Minecraft.getMinecraft ().getRenderViewEntity() != null && PlayerUtil.isPlayerInGame()) {
 			final Entity player = (Entity)AutoClicker.mc.thePlayer;
 			if (player != null) {
 				final MovingObjectPosition mop = Minecraft.getMinecraft().getRenderViewEntity().rayTrace(4.8, 1.0f);

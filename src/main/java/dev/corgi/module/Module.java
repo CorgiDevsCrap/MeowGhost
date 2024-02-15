@@ -83,7 +83,6 @@ public class Module {
 	}
 
 	public void onUpdate() {
-		FMLCommonHandler.instance().bus().register(this);
 	}
 	
 	public String getName() {

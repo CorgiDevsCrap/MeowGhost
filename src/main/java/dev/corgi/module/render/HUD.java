@@ -4,6 +4,7 @@ import dev.corgi.MeowGhost;
 import dev.corgi.module.Category;
 import dev.corgi.module.Module;
 import dev.corgi.settings.Setting;
+import dev.corgi.utils.ColorUtil;
 import dev.corgi.utils.RenderUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -18,9 +19,12 @@ import java.util.stream.Collectors;
 
 public class HUD extends Module {
 
+	public Setting astolfo;
+
 	public HUD() {
 		super("HUD", "Draws the module list on your screen", Category.RENDER);
 	}
+
 
 
 	@SubscribeEvent
@@ -42,7 +46,7 @@ public class HUD extends Module {
 
 		if(MeowGhost.instance.moduleManager.getModule("HUD").isToggled()) {
 			for (Module mod : sortedModules) {
-				fr.drawStringWithShadow(mod.getName(), sr.getScaledWidth() - fr.getStringWidth(mod.getName()) - 6, y + 5, -1);
+				fr.drawStringWithShadow(mod.getName(), 12, y + 20, ColorUtil.astolfoColorsDraw(1, 1));
 				y += fr.FONT_HEIGHT;
 			}
 			int height = fr.FONT_HEIGHT - 5;

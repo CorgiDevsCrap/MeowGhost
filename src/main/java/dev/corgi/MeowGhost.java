@@ -25,7 +25,7 @@ public class MeowGhost
     public SaveLoad saveLoad;
     public boolean destructed = false;
 	public static String cn = "MeowGhost";
-	public static String cv = "v2.0";
+	public static String cv = "v2.1";
 	public ArrayList<String> friends = new ArrayList<>();
     
     public void init() {
@@ -58,9 +58,6 @@ public class MeowGhost
     }
     
     public void onDestruct() {
-    	if (Minecraft.getMinecraft().currentScreen != null && Minecraft.getMinecraft().thePlayer != null) {
-    		Minecraft.getMinecraft().thePlayer.closeScreen();
-    	}
     	destructed = true;
     	MinecraftForge.EVENT_BUS.unregister(this);
     	for (int k = 0; k < this.moduleManager.modules.size(); k++) {

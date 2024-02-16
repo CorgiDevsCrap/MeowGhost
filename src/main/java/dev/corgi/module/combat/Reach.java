@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.Random;
 
-public class Reach extends Module {
+public class  Reach extends Module {
 
     public int miInt;
     public int maInt;
@@ -36,7 +36,7 @@ public class Reach extends Module {
 
     @SubscribeEvent
     public void a(final MouseEvent event) {
-        if(!MeowGhost.instance.settingsManager.getSettingByName(this, "Blatant").isCheck() && mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
+        if(!MeowGhost.instance.settingsManager.getSettingByName(this, "Blatant").getValBoolean() && mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
             return;
         }
         final double lol = miDouble + this.r.nextDouble() * (maDouble - miDouble);

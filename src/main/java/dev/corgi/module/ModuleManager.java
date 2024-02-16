@@ -33,7 +33,6 @@ public class ModuleManager {
 		this.modules.add(new Customizer());
 		this.modules.add(new DelayRemover());
 		this.modules.add(new NoFall());
-		this.modules.add(new NameTags());
         this.modules.add(new KillAura());
 		this.modules.add(new PacketAura());
 		this.modules.add(new SafeWalk());

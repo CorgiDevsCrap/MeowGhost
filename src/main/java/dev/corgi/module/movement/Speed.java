@@ -21,16 +21,14 @@ public class Speed extends Module {
         this.jumping = false;
     }
 
-    @SubscribeEvent
-    public void onTick(TickEvent.PlayerTickEvent e) {
-        if(this.running) {
-            if (mc.thePlayer.onGround && !this.jumping) {
-                KeyBinding.setKeyBindState(mc.gameSettings.keyBindJump.getKeyCode(), true);
-                this.jumping = true;
-            } else if (this.jumping) {
-                KeyBinding.setKeyBindState(mc.gameSettings.keyBindJump.getKeyCode(), false);
-                this.jumping = false;
-            }
+    @Override
+    public void onUpdate() {
+        if(!this.jumping && mc.thePlayer.onGround) {
+            KeyBinding.setKeyBindState(mc.gameSettings.keyBindJump.getKeyCode(), true);
+            jumping = true;
+        } if (this.jumping && !mc.thePlayer.onGround){
+            KeyBinding.setKeyBindState(mc.gameSettings.keyBindJump.getKeyCode(), false);
+            jumping = false;
         }
     }
 

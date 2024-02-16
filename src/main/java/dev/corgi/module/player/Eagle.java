@@ -32,7 +32,7 @@ public class Eagle extends Module {
                 if(i.getItem() instanceof ItemBlock) {
                     KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), false);
                     if(mc.theWorld.getBlockState(bP).getBlock() == Blocks.air && mc.thePlayer.onGround) {
-                        if(pitch.isCheck() && mc.thePlayer.rotationPitch >= 45) {
+                        if(pitch.getValBoolean() && mc.thePlayer.rotationPitch >= 45) {
                             KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), true);
                         } else if(!pitch.isCheck()) {
                             KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), true);

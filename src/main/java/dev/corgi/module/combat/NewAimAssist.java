@@ -72,6 +72,7 @@ public class NewAimAssist
 
         EntityPlayer en;
         do {
+            do {
                 do {
                     do {
                         do {
@@ -80,10 +81,11 @@ public class NewAimAssist
                                     return null;
                                 }
 
-                                en = (EntityPlayer)var2.next();
-                            } while(en == mc.thePlayer);
-                        } while(en.deathTime != 0);
-                    } while(!aimInvis.isCheck() && en.isInvisible());
+                                en = (EntityPlayer) var2.next();
+                            } while (en == mc.thePlayer);
+                        } while (en.deathTime != 0);
+                    } while (!en.getDisplayNameString().contains("ITEM SHOP") || !en.getDisplayNameString().contains("TEAM UPGRADES"));
+                    } while(!aimInvis.getValBoolean() && en.isInvisible());
                 } while((double)mc.thePlayer.getDistanceToEntity(en) > distance.getValDouble());
         } while(blatantMode.getValBoolean() && !PlayerUtil.isInFov(en, (float)fov1));
 

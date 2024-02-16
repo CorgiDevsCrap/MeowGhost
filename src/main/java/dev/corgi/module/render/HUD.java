@@ -23,6 +23,7 @@ public class HUD extends Module {
 
 	public HUD() {
 		super("HUD", "Draws the module list on your screen", Category.RENDER);
+		MeowGhost.instance.settingsManager.rSetting(astolfo = new Setting("Astolfo", this, true));
 	}
 
 
@@ -46,7 +47,11 @@ public class HUD extends Module {
 
 		if(MeowGhost.instance.moduleManager.getModule("HUD").isToggled()) {
 			for (Module mod : sortedModules) {
-				fr.drawStringWithShadow(mod.getName(), 12, y + 20, ColorUtil.astolfoColorsDraw(1, 1));
+				if(astolfo.getValBoolean()) {
+					fr.drawStringWithShadow(mod.getName(), 12, y + 20, ColorUtil.astolfoColorsDraw(1, 1));
+				} else {
+					fr.drawStringWithShadow(mod.getName(), 12, y + 20, -1);
+				}
 				y += fr.FONT_HEIGHT;
 			}
 			int height = fr.FONT_HEIGHT - 5;

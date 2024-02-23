@@ -17,13 +17,14 @@ public class SaveLoad {
 
 	private File dir;
 	private File dataFile;
+	public String fileName = "default";
 	
 	public SaveLoad() {
-		dir = new File(Minecraft.getMinecraft().mcDataDir, "meowghost");
+		dir = new File(Minecraft.getMinecraft().mcDataDir, "meowghost/config");
 		if (!dir.exists()) {
 			dir.mkdir();
 		}
-		dataFile = new File(dir, "data.txt");
+		dataFile = new File(dir, fileName);
 		if (!dataFile.exists()) {
 			try {
 				dataFile.createNewFile();

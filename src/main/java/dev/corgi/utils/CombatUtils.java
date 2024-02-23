@@ -1,7 +1,7 @@
 package dev.corgi.utils;
 
 import dev.corgi.MeowGhost;
-import dev.corgi.module.combat.KillAura;
+import dev.corgi.module.impl.combat.KillAura;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

@@ -9,6 +9,7 @@ import java.lang.reflect.Field;
 public class ReflectUtil {
 
     public static Field t = null;
+    public static Field ts = null;
     public static Field g = null;
     public static Field f = null;
     public static Field h = null;
@@ -16,9 +17,11 @@ public class ReflectUtil {
     public static void su() {
         try {
             t = Minecraft.class.getDeclaredField("field_71428_T");
+            ts = Minecraft.class.getDeclaredField("field_74278_d");
         } catch (Exception var4) {
             try {
                 t = Minecraft.class.getDeclaredField("timer");
+                ts = Minecraft.class.getDeclaredField("timerSpeed");
             } catch (Exception var3) {
             }
         }

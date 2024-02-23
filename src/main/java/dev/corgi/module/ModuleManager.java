@@ -1,10 +1,16 @@
 package dev.corgi.module;
 import java.util.ArrayList;
-import dev.corgi.module.misc.*;
-import dev.corgi.module.combat.*;
-import dev.corgi.module.movement.*;
-import dev.corgi.module.player.*;
-import dev.corgi.module.render.*;
+
+import dev.corgi.module.impl.combat.*;
+import dev.corgi.module.impl.misc.AltManager;
+import dev.corgi.module.impl.misc.Customizer;
+import dev.corgi.module.impl.misc.FriendsManager;
+import dev.corgi.module.impl.misc.SelfDestruct;
+import dev.corgi.module.impl.movement.Fly;
+import dev.corgi.module.impl.movement.Speed;
+import dev.corgi.module.impl.movement.Sprint;
+import dev.corgi.module.impl.player.*;
+import dev.corgi.module.impl.render.*;
 
 public class ModuleManager {
 
@@ -24,7 +30,7 @@ public class ModuleManager {
 		this.modules.add(new Chams());
 		this.modules.add(new HitBoxes());
 		this.modules.add(new Reach());
-		this.modules.add(new AimAssist());
+		//this.modules.add(new AimAssist());
 		this.modules.add(new FullBright());
 		this.modules.add(new FastPlace());
 		this.modules.add(new ChestESP());
@@ -37,6 +43,9 @@ public class ModuleManager {
 		this.modules.add(new PacketAura());
 		this.modules.add(new SafeWalk());
 		this.modules.add(new NewAimAssist());
+		this.modules.add(new FriendsManager());
+		this.modules.add(new Fly());
+		this.modules.add(new AutoTool());
 	}
 	
 	public Module getModule(String name) {

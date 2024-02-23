@@ -59,10 +59,13 @@ public class GuiAccountManager extends GuiScreen {
       1, width / 2 + 4, height - 52, 150, 20, "Add"
     ));
     buttonList.add(deleteButton = new GuiButton(
-      2, width / 2 - 150 - 4, height - 28, 150, 20, "Delete"
+            2, width / 2 - 150 + 72, height - 28, 75, 20, "Delete"
     ));
     buttonList.add(cancelButton = new GuiButton(
-      3, width / 2 + 4, height - 28, 150, 20, "Cancel"
+            3, width / 2 + 4, height - 28, 150, 20, "Cancel"
+    ));
+    buttonList.add(new GuiButton(
+            4, width / 2 - 150 - 4, height - 28, 75, 20, "Cracked"
     ));
 
     guiAccountList = new GuiAccountList(mc);
@@ -281,6 +284,10 @@ public class GuiAccountManager extends GuiScreen {
         break;
         case 3: { // Cancel
           mc.displayGuiScreen(previousScreen);
+        }
+        break;
+        case 4: { // Cracked
+          mc.displayGuiScreen(new GuiCrackedLogin());
         }
         break;
         default: {

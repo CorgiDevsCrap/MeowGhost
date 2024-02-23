@@ -1,4 +1,6 @@
 package dev.corgi;
+import dev.corgi.autosave.FriendsSaveLoad;
+import dev.corgi.friends.FriendsManager;
 import dev.corgi.module.Module;
 import dev.corgi.module.ModuleManager;
 import dev.corgi.utils.PlayerUtil;
@@ -21,19 +23,22 @@ public class MeowGhost
     public static MeowGhost instance;
     public ModuleManager moduleManager;
     public SettingsManager settingsManager;
+    public FriendsManager friendsManager;
     public ClickGui clickGui;
     public SaveLoad saveLoad;
+    public FriendsSaveLoad friendsSaveLoad;
     public boolean destructed = false;
 	public static String cn = "MeowGhost";
-	public static String cv = "v2.1";
-	public ArrayList<String> friends = new ArrayList<>();
+	public static String cv = "v2.4";
     
     public void init() {
     	MinecraftForge.EVENT_BUS.register(this);
     	settingsManager = new SettingsManager();
     	moduleManager = new ModuleManager();
+        friendsManager = new FriendsManager();
     	clickGui = new ClickGui();
     	saveLoad = new SaveLoad();
+        friendsSaveLoad = new FriendsSaveLoad();
 		ReflectUtil.su();
     }
     
@@ -79,7 +84,6 @@ public class MeowGhost
                     }
                 }
             }
-
         }
     }
 }
